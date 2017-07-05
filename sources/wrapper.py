@@ -89,7 +89,7 @@ def main():
         # Sequential
         # offer_list = reduce(lambda l1, l2: l1 + l2, map(extract_data_from_html, files_paths))
 
-        # # Parallel
+        # Parallel
         pool = multiprocessing.Pool(NUMBER_OF_THREADS)
         results = pool.map_async(extract_data_from_html, files_paths)
         pool.close()
@@ -99,8 +99,8 @@ def main():
         pool.join()
         offer_list = reduce(lambda l1, l2: l1 + l2, results.get())
         offer_list = offer_list[0:300]
-        # for offer in offer_list:
-        #     print codecs.encode(offer['title'], 'utf-8')
+        for offer in offer_list:
+            print codecs.encode(offer['title'], 'utf-8')
 
         with codecs.open(OUTPUT_FILE, 'w+', encoding='utf-8') as file_:
             json.dump(offer_list, file_, indent=4, sort_keys=True, ensure_ascii=False)
