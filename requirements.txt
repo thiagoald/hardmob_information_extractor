@@ -1,5 +1,5 @@
 beautifulsoup4==4.5.1
-lxml==3.4.2
+lxml==4.6.2
 pycorenlp==0.3.0
 regex==2017.04.29
 requests==2.5.3
